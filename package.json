@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "lint": "eslint --ignore-pattern '/dist/' '**/*.js'",
-    "test": "istanbul cover node_modules/jasmine/bin/jasmine.js -- JASMINE_CONFIG_PATH=test/jasmine.json",
+    "test": "istanbul cover node_modules/jasmine/bin/jasmine.js -- JASMINE_CONFIG_PATH=jasmine.json",
     "upload-coverage": "cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "build": "npm run build:umd && npm run build:umd-min",
     "build:umd": "rollup -c",
