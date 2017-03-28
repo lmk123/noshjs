@@ -39,9 +39,7 @@ function parsePath (path) {
         break
       case '"':
       case "'":
-        if (!bracketStart) {
-          saveChunk()
-        }
+        // 忽略单/双引号
         break
       case '.':
         if (!bracketStart) {
