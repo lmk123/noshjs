@@ -1,0 +1,12 @@
+language: node_js
+
+node_js:
+  - "node"
+
+cache: yarn
+
+script:
+  - yarn test
+
+notifications:
+  email: false
