@@ -7,6 +7,7 @@ cache: yarn
 
 script:
   - yarn test
+  - yarn run upload-coverage
 
 notifications:
   email: false
