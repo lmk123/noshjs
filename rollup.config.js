@@ -9,7 +9,7 @@ const config = {
   banner: [
     '/*!',
     ' * dish.js v' + pkg.version,
-    ' * https://github.com/lmk123/dish',
+    ' * https://github.com/lmk123/dishjs',
     ' * Released under the MIT License.',
     ' */'
   ].join('\n'),
