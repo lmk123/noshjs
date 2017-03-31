@@ -12,10 +12,8 @@
     "lint": "eslint --ignore-pattern '/dist/' '**/*.js'",
     "test": "istanbul cover node_modules/jasmine/bin/jasmine.js -- JASMINE_CONFIG_PATH=jasmine.json",
     "upload-coverage": "cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
-    "build": "npm run build:umd && npm run build:umd-min",
-    "build:umd": "rollup -c",
-    "build:umd-min": "rollup -c --environment MIN",
-    "prepublish": "npm run build"
+    "build": "node build/build.js",
+    "prepublish": "yarn run build"
   },
   "devDependencies": {
     "coveralls": "^2.12.0",
@@ -23,12 +21,13 @@
     "eslint-config-standard": "^7.0.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^2.1.1",
+    "fs-extra": "^2.1.2",
     "istanbul": "^0.4.5",
     "jasmine": "^2.5.3",
     "rollup": "^0.41.6",
     "rollup-plugin-buble": "^0.15.0",
     "rollup-plugin-commonjs": "^8.0.2",
-    "rollup-plugin-uglify": "^1.0.1"
+    "uglify-js": "^2.8.19"
   },
   "author": "Mingkai Li (https://github.com/lmk123)",
   "license": "MIT"
