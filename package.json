@@ -1,8 +1,8 @@
 {
-  "name": "dishjs",
-  "version": "0.0.2",
+  "name": "noshjs",
+  "version": "0.0.1",
   "main": "index.js",
-  "unpkg": "dist/dish.js",
+  "unpkg": "dist/nosh.js",
   "files": [
     "index.js",
     "libs",

@@ -1,4 +1,4 @@
-# dish.js
+# nosh.js
 
 [![Build Status](https://img.shields.io/travis/lmk123/dishjs/master.svg?style=flat-square)](https://travis-ci.org/lmk123/dishjs)
 [![Coverage Status](https://img.shields.io/coveralls/lmk123/dishjs/master.svg?style=flat-square)](https://coveralls.io/github/lmk123/dishjs?branch=master)
