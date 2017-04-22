@@ -19,7 +19,7 @@ const banner = [
 ].join('\n')
 
 rollup.rollup({
-  entry: path.resolve(__dirname, '../index.js'),
+  entry: path.resolve(__dirname, '../libs/index.js'),
   plugins: [buble()]
 }).then(bundle => {
   // 输出 umd 格式
