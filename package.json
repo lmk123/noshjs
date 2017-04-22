@@ -9,19 +9,21 @@
     "dist"
   ],
   "scripts": {
-    "lint": "eslint --ignore-pattern '/dist/' '**/*.js'",
-    "test": "istanbul cover node_modules/jasmine/bin/jasmine.js -- JASMINE_CONFIG_PATH=jasmine.json",
-    "upload-coverage": "cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
+    "lint": "eslint --ignore-pattern '/dist/' --ignore-pattern '/coverage/' '**/*.js'",
     "build": "node build/build.js",
-    "prepublish": "yarn run build",
-    "pretest": "yarn run build"
+    "pretest": "yarn run lint && yarn run build",
+    "test": "istanbul cover node_modules/jasmine/bin/jasmine.js -- JASMINE_CONFIG_PATH=jasmine.json",
+    "prepublish": "yarn test",
+    "upload-coverage": "cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js"
   },
   "devDependencies": {
     "coveralls": "^2.12.0",
     "eslint": "^3.17.0",
-    "eslint-config-standard": "^7.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^2.1.1",
+    "eslint-plugin-standard": "^3.0.1",
     "fs-extra": "^2.1.2",
     "istanbul": "^0.4.5",
     "jasmine": "^2.5.3",
