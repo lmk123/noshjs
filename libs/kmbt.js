@@ -1,4 +1,4 @@
-const parseNumber = require('./internal/parseNumber')
+import parseNumber from './internal/parseNumber'
 
 const KMB_MAP = ['', 'K', 'M', 'B', 'T', 'P', 'E']
 const KMB_CEILING = KMB_MAP.length
@@ -12,7 +12,7 @@ const SPLIT_NUMBER = Math.pow(10, SPLIT_COUNT)
  * @return {string}
  * @example kmbt(2211) -> 2.21K
  */
-module.exports = function (value, fixed = 2) {
+export default function (value, fixed = 2) {
   const num = parseNumber(value)
   if (!num) return ''
   // 整数部分有多少个 3 位

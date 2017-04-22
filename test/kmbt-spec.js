@@ -1,4 +1,4 @@
-const kmbt = require('../libs/kmbt')
+const { kmbt } = require('../dist/nosh.common')
 
 describe('kmbt 函数', function () {
   it('能正常运行', function () {

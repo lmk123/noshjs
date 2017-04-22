@@ -1,4 +1,4 @@
-const parseNumber = require('./internal/parseNumber')
+import parseNumber from './internal/parseNumber'
 
 const SYMBOL = ','
 const COUNT = 3
@@ -9,7 +9,7 @@ const COUNT = 3
  * @return {string}
  * @example thousands(12345.67) => '12,345.67'
  */
-module.exports = function (value) {
+export default function (value) {
   const num = parseNumber(value)
   if (!num) return ''
   const {

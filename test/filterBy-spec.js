@@ -1,4 +1,4 @@
-const filterBy = require('../libs/filterBy')
+const { filterBy } = require('../dist/nosh.common')
 const array = [
   {
     name: 'John',

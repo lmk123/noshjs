@@ -1,7 +1,8 @@
 {
   "name": "noshjs",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "dist/nosh.common.js",
+  "module": "dist/nosh.esm.js",
   "unpkg": "dist/nosh.js",
   "files": [
     "index.js",
@@ -13,7 +14,8 @@
     "test": "istanbul cover node_modules/jasmine/bin/jasmine.js -- JASMINE_CONFIG_PATH=jasmine.json",
     "upload-coverage": "cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "build": "node build/build.js",
-    "prepublish": "yarn run build"
+    "prepublish": "yarn run build",
+    "pretest": "yarn run build"
   },
   "devDependencies": {
     "coveralls": "^2.12.0",
@@ -26,7 +28,6 @@
     "jasmine": "^2.5.3",
     "rollup": "^0.41.6",
     "rollup-plugin-buble": "^0.15.0",
-    "rollup-plugin-commonjs": "^8.0.2",
     "uglify-js": "^2.8.19"
   },
   "author": "Mingkai Li (https://github.com/lmk123)",

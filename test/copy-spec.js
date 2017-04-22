@@ -1,4 +1,4 @@
-const copy = require('../libs/copy')
+const { copy } = require('../dist/nosh.common')
 
 describe('copy 函数', function () {
   it('能正确执行', function () {

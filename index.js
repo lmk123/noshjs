@@ -1,13 +1,13 @@
-const copy = require('./libs/copy')
-const get = require('./libs/get')
-const kmbt = require('./libs/kmbt')
-const thousands = require('./libs/thousands')
-const filterBy = require('./libs/filterBy')
+import copy from './libs/copy'
+import filterBy from './libs/filterBy'
+import isNumber from './libs/isNumber'
+import kmbt from './libs/kmbt'
+import thousands from './libs/thousands'
 
-module.exports = {
+export {
   copy,
-  get,
+  filterBy,
+  isNumber,
   kmbt,
-  thousands,
-  filterBy
+  thousands
 }

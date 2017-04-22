@@ -1,4 +1,4 @@
-const thousands = require('../libs/thousands')
+const { thousands } = require('../dist/nosh.common')
 
 describe('thousands 函数', function () {
   it('能正常运行', function () {

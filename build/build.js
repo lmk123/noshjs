@@ -8,7 +8,6 @@ fs.emptyDirSync(path.resolve(__dirname, '../dist'))
 const rollup = require('rollup')
 const buble = require('rollup-plugin-buble')
 const uglifyJS = require('uglify-js')
-const commonjs = require('rollup-plugin-commonjs')
 const pkg = require('../package.json')
 
 const banner = [
@@ -21,13 +20,13 @@ const banner = [
 
 rollup.rollup({
   entry: path.resolve(__dirname, '../index.js'),
-  plugins: [buble(), commonjs()]
+  plugins: [buble()]
 }).then(bundle => {
   // 输出 umd 格式
   bundle.write({
     dest: path.resolve(__dirname, '../dist/nosh.js'),
     format: 'umd',
-    moduleName: 'dish',
+    moduleName: 'nosh',
     banner
   }).then(() => {
     // 精简文件
@@ -38,6 +37,20 @@ rollup.rollup({
     }).code
 
     fs.writeFile(path.resolve(__dirname, '../dist/nosh.min.js'), code)
+  })
+
+  // 输出 es 格式
+  bundle.write({
+    dest: path.resolve(__dirname, '../dist/nosh.esm.js'),
+    format: 'es',
+    banner
+  })
+
+  // 输出 cjs 格式
+  bundle.write({
+    dest: path.resolve(__dirname, '../dist/nosh.common.js'),
+    format: 'cjs',
+    banner
   })
 })
 
