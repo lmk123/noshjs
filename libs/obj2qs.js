@@ -6,11 +6,11 @@ const { hasOwnProperty } = Object.prototype
  * @return {string}
  */
 export default function (obj) {
-  let qs = ''
+  const qs = []
   for (let key in obj) {
     if (hasOwnProperty.call(obj, key)) {
-      qs += key + '=' + encodeURIComponent(obj[key])
+      qs.push(key + '=' + encodeURIComponent(obj[key]))
     }
   }
-  return qs
+  return qs.join('&')
 }
