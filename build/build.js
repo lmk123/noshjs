@@ -30,13 +30,15 @@ rollup.rollup({
     banner
   }).then(() => {
     // 精简文件
-    const code = uglifyJS.minify(path.resolve(__dirname, '../dist/nosh.js'), {
-      output: {
-        comments: /^!/
-      }
-    }).code
+    fs.readFile(path.resolve(__dirname, '../dist/nosh.js'), 'utf8').then(codeStr => {
+      const { code } = uglifyJS.minify(codeStr, {
+        output: {
+          comments: /^!/
+        }
+      })
 
-    fs.writeFile(path.resolve(__dirname, '../dist/nosh.min.js'), code)
+      fs.writeFile(path.resolve(__dirname, '../dist/nosh.min.js'), code)
+    })
   })
 
   // 输出 es 格式
