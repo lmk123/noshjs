@@ -1,5 +1,4 @@
 import copy from './copy'
-import filterBy from './filterBy'
 import isNumber from './isNumber'
 import kmbt from './kmbt'
 import thousands from './thousands'
@@ -8,7 +7,6 @@ import remove from './remove'
 
 export {
   copy,
-  filterBy,
   isNumber,
   kmbt,
   thousands,
