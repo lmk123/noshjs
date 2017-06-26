@@ -1,20 +1,20 @@
-const { extendJSON } = require('../dist/nosh.common')
+const { extend } = require('../dist/nosh.common')
 
-describe('extendJSON 函数', function () {
+describe('extend 函数', function () {
   it('能正确执行', function () {
-    expect(extendJSON(null, { a: '' })).toBeNull()
-    expect(extendJSON(undefined, { a: '' })).toBeUndefined()
+    expect(extend(null, { a: '' })).toBeNull()
+    expect(extend(undefined, { a: '' })).toBeUndefined()
 
-    expect(extendJSON({}, null, { a: '' })).toEqual({ a: '' })
+    expect(extend({}, null, { a: '' })).toEqual({ a: '' })
 
     const x = Object.create({ inherit: 'x' })
 
-    expect(extendJSON({}, x)).toEqual({})
+    expect(extend({}, x)).toEqual({})
 
-    expect(extendJSON([], [1, 2, 3, 4])).toEqual([1, 2, 3, 4])
-    expect(extendJSON({}, [1, 2, 3, 4])).toEqual({ 0: 1, 1: 2, 2: 3, 3: 4 })
+    expect(extend([], [1, 2, 3, 4])).toEqual([1, 2, 3, 4])
+    expect(extend({}, [1, 2, 3, 4])).toEqual({ 0: 1, 1: 2, 2: 3, 3: 4 })
 
-    expect(extendJSON(
+    expect(extend(
       {
         a: [
           {
@@ -37,7 +37,7 @@ describe('extendJSON 函数', function () {
       ]
     })
 
-    expect(extendJSON(
+    expect(extend(
       {
         a: {
           b: 1

@@ -15,11 +15,7 @@ export function extend (dest, ...objects) {
 
   objects.forEach(obj => {
     if (obj == null) return
-
-    for (let key in obj) {
-      if (!hasOwn.call(obj, key)) continue
-      dest[key] = copy(obj[key])
-    }
+    mixin(dest, obj)
   })
 
   return dest
@@ -38,8 +34,16 @@ export function copy (val) {
     })
     return newArray
   } else if (typeof val === 'object' && val) {
-    return extend({}, val)
+    return mixin({}, val)
   } else {
     return val
   }
+}
+
+function mixin (to, from) {
+  for (let key in from) {
+    if (!hasOwn.call(from, key)) continue
+    to[key] = copy(from[key])
+  }
+  return to
 }

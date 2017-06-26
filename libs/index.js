@@ -10,7 +10,6 @@ export {
   extend,
   copy,
   get,
-  copy,
   isNumber,
   kmbt,
   thousands,
