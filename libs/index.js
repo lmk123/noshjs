@@ -5,6 +5,7 @@ import thousands from './thousands'
 import obj2qs from './obj2qs'
 import remove from './remove'
 import { extend, copy } from './extend'
+import percentage from './percentage'
 
 export {
   extend,
@@ -14,5 +15,6 @@ export {
   kmbt,
   thousands,
   obj2qs,
-  remove
+  remove,
+  percentage
 }
