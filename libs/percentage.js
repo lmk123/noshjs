@@ -1,7 +1,5 @@
 import isNumber from './isNumber'
 
-const TRIM_ZERO_REG = /\.?0+$/
-
 /**
  * 将一个小数转换为百分比
  * @param {number|string} number
@@ -14,7 +12,7 @@ export default function (number, fixed = 2, noZero) {
   if (!isNumber(number)) return ''
   let numberString = (number * 100).toFixed(fixed)
   if (noZero) {
-    numberString = numberString.replace(TRIM_ZERO_REG, '')
+    numberString = parseFloat(numberString)
   }
   return numberString + '%'
 }
