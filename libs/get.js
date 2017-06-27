@@ -10,6 +10,8 @@ export default function (obj, pathArray, defaultValue) {
 
   let value = obj
 
+  pathArray = [].concat(pathArray)
+
   for (let i = 0; i < pathArray.length; i += 1) {
     const key = pathArray[i]
     value = value[key]
