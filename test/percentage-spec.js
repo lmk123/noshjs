@@ -6,5 +6,7 @@ describe('percentage 函数', function () {
     expect(percentage('1')).toBe('100.00%')
     expect(percentage(-0.1)).toBe('-10.00%')
     expect(percentage(0.01, 4)).toBe('1.0000%')
+    expect(percentage(0.01, 4, true)).toBe('1%')
+    expect(percentage('0.13324', 7, true)).toBe('13.324%')
   })
 })
