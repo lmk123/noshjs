@@ -23,23 +23,14 @@ rollup.rollup({
   plugins: [buble()]
 }).then(bundle => {
   // 输出 umd 格式
-  bundle.write({
-    dest: path.resolve(__dirname, '../dist/nosh.js'),
+  const { code } = bundle.generate({
     format: 'umd',
     moduleName: 'nosh',
     banner
-  }).then(() => {
-    // 精简文件
-    fs.readFile(path.resolve(__dirname, '../dist/nosh.js'), 'utf8').then(codeStr => {
-      const { code } = uglifyJS.minify(codeStr, {
-        output: {
-          comments: /^!/
-        }
-      })
-
-      fs.writeFile(path.resolve(__dirname, '../dist/nosh.min.js'), code)
-    })
   })
+
+  fs.writeFile(path.resolve(__dirname, '../dist/nosh.js'), code)
+  fs.writeFile(path.resolve(__dirname, '../dist/nosh.min.js'), uglifyJS.minify(code, { output: { comments: /^!/ } }).code)
 
   // 输出 es 格式
   bundle.write({
