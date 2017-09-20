@@ -1,6 +1,6 @@
 {
   "name": "noshjs",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "main": "dist/nosh.common.js",
   "module": "dist/nosh.esm.js",
   "unpkg": "dist/nosh.js",
