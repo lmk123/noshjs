@@ -13,7 +13,7 @@
     "build": "node build/build.js",
     "pretest": "yarn run lint && yarn run build",
     "test": "istanbul cover node_modules/jasmine/bin/jasmine.js -- JASMINE_CONFIG_PATH=jasmine.json",
-    "prepublish": "yarn test",
+    "prepublishOnly": "yarn test",
     "upload-coverage": "cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js"
   },
   "devDependencies": {
