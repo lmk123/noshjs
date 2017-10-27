@@ -18,31 +18,38 @@ const banner = [
   ' */'
 ].join('\n')
 
-rollup.rollup({
-  entry: path.resolve(__dirname, '../libs/index.js'),
-  plugins: [buble()]
-}).then(bundle => {
-  // 输出 umd 格式
-  const { code } = bundle.generate({
-    format: 'umd',
-    moduleName: 'nosh',
-    banner
+rollup
+  .rollup({
+    input: path.resolve(__dirname, '../libs/index.js'),
+    plugins: [buble()]
   })
+  .then(bundle => {
+    // 输出 umd 格式
+    bundle
+      .generate({
+        format: 'umd',
+        name: 'nosh',
+        banner
+      })
+      .then(({ code }) => {
+        fs.writeFile(path.resolve(__dirname, '../dist/nosh.js'), code)
+        fs.writeFile(
+          path.resolve(__dirname, '../dist/nosh.min.js'),
+          uglifyJS.minify(code, { output: { comments: /^!/ } }).code
+        )
+      })
 
-  fs.writeFile(path.resolve(__dirname, '../dist/nosh.js'), code)
-  fs.writeFile(path.resolve(__dirname, '../dist/nosh.min.js'), uglifyJS.minify(code, { output: { comments: /^!/ } }).code)
+    // 输出 es 格式
+    bundle.write({
+      file: path.resolve(__dirname, '../dist/nosh.esm.js'),
+      format: 'es',
+      banner
+    })
 
-  // 输出 es 格式
-  bundle.write({
-    dest: path.resolve(__dirname, '../dist/nosh.esm.js'),
-    format: 'es',
-    banner
+    // 输出 cjs 格式
+    bundle.write({
+      file: path.resolve(__dirname, '../dist/nosh.common.js'),
+      format: 'cjs',
+      banner
+    })
   })
-
-  // 输出 cjs 格式
-  bundle.write({
-    dest: path.resolve(__dirname, '../dist/nosh.common.js'),
-    format: 'cjs',
-    banner
-  })
-})
