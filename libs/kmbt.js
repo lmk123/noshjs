@@ -14,7 +14,7 @@ const SPLIT_NUMBER = Math.pow(10, SPLIT_COUNT)
  */
 export default function (value, fixed = 2) {
   const num = parseNumber(value)
-  if (!num) return ''
+  if (!num) return value
   // 整数部分有多少个 3 位
   const count = Math.min(Math.ceil(num.integer.length / SPLIT_COUNT), KMB_CEILING) - 1
   return Number((value / Math.pow(SPLIT_NUMBER, count)).toFixed(fixed)) + KMB_MAP[count]
