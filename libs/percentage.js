@@ -6,9 +6,9 @@ import isNumber from './isNumber'
  * @param {number} [fixed=2]
  * @return {string}
  */
-export default function (number, fixed = 2) {
-  number = Number(number)
-  if (!isNumber(number)) return ''
+export default function (value, fixed = 2) {
+  const number = Number(value)
+  if (!isNumber(number)) return value
   let numberString = (number * 100).toFixed(fixed)
   return parseFloat(numberString) + '%'
 }

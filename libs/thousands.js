@@ -11,7 +11,7 @@ const COUNT = 3
  */
 export default function (value) {
   const num = parseNumber(value)
-  if (!num) return ''
+  if (!num) return value
   const {
     minus,
     integer,
