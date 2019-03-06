@@ -1,13 +1,11 @@
-import isNumber from '../isNumber'
-
 /**
  * 解析一个数字的各个部分
- * @param {number|string} number
+ * @param {*} number
  * @return {{minus: boolean, integer: string, decimal: string}|null}
  */
 export default function (number) {
-  number = Number(number)
-  if (!isNumber(number)) return null
+  number = parseFloat(number)
+  if (isNaN(number)) return null
   let minus = false
   let stringValue = String(number)
   if (stringValue[0] === '-') {

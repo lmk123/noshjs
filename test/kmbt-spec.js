@@ -2,7 +2,7 @@ const { kmbt } = require('../dist/nosh.common')
 
 describe('kmbt 函数', function () {
   it('能正常运行', function () {
-    expect(kmbt('not a number')).toBe('not a number')
+    expect(kmbt('not a number')).toBeNull()
     expect(kmbt(-988)).toBe('-988')
     expect(kmbt(988)).toBe('988')
     expect(kmbt(988.01)).toBe('988.01')

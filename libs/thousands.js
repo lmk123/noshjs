@@ -5,13 +5,13 @@ const COUNT = 3
 
 /**
  * 将一个数字转换为加了千分位的字符串
- * @param {number} value
- * @return {string}
+ * @param {*} value
+ * @return {string|null}
  * @example thousands(12345.67) => '12,345.67'
  */
 export default function (value) {
   const num = parseNumber(value)
-  if (!num) return value
+  if (!num) return null
   const {
     minus,
     integer,
